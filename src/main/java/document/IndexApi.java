@@ -15,9 +15,10 @@ public class IndexApi {
 
     public IndexResponse indexSync(
             final String index,
+            final String id,
             final Map<String, Object> document) {
         try (final RestHighLevelClient client = LocalhostClient.create()) {
-            final IndexRequest request = new IndexRequest(index)
+            final IndexRequest request = new IndexRequest(index).id(id)
                     .source(document);
 
             return client.index(request, RequestOptions.DEFAULT);

@@ -18,11 +18,14 @@ public class IndexApiTest {
     public void indexSyncTest() {
         final IndexApi api = new IndexApi();
 
+        String id = "UUID.randomUUID().toString()";
         final IndexResponse response = api.indexSync(
                 "my_index",
+                id,
                 Map.of(
                         "timestamp", Instant.now(),
-                        "uuid", UUID.randomUUID().toString()
+                        "uuid", id,
+                        "desc", "jvm abc"
                 )
         );
 

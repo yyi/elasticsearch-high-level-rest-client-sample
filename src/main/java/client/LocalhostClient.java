@@ -8,7 +8,7 @@ public class LocalhostClient {
 
     public static RestHighLevelClient create() {
         return new RestHighLevelClient(RestClient.builder(
-                new HttpHost("localhost", 9200, "http")
+                new HttpHost("master", 9200, "http")
         ));
     }
 }
